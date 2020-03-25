@@ -1,0 +1,11 @@
+<view class="SevenDreamY_keyboard">
+  <block wx:for="{{key}}" wx:for-index="idx" wx:for-item="key_row" wx:key="idx">
+    <view class="key_row">
+      <block wx:for="{{key_row}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2">
+        <view class="key_item com_key" hover-class="hover-key" bindtap="onKey" data-key="{{key_item}}">{{key_item}}</view>
+      </block>
+    </view>
+  </block>
+  <view class="shift com_key" data-key="shift"  bindtap="onKey" hover-class="hover-key">shift</view>
+  <view class="Del com_key" data-key="Del"  bindtap="onKey"  hover-class="hover-key">Del</view>
+</view>

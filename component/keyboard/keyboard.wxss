@@ -1,0 +1,42 @@
+.SevenDreamY_keyboard{
+  position: relative;
+  background: #eee;
+  padding: 20rpx 2rpx;
+}
+.key_row{
+  display: flex;
+  justify-content: center;
+}
+.com_key{
+  margin: 6rpx;
+  background: #f8f8f8;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  border-radius:6rpx; 
+  align-items: center;
+  box-shadow: 0rpx 2rpx 3rpx #333;
+}
+.key_item{
+  width: 64rpx;
+  height:80rpx;
+}
+.shift{
+  width: 100rpx;
+  height:80rpx;
+  position: absolute;
+  left: 2rpx;
+  bottom: 20rpx;
+}
+.Del{
+  width:100rpx;
+  height:80rpx;
+  position: absolute;
+  right: 2rpx;
+  bottom: 20rpx;
+}
+
+.hover-key{
+  opacity: 0.6;
+  box-shadow: 0rpx 2rpx 3rpx #666 inset;
+}
