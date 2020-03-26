@@ -1,4 +1,4 @@
-<view class="SevenDreamY_keyboard">
+<view class="SevenDreamY_Numberboard">
   <view class="key_row">
     <block wx:for="{{firstRow}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2">
       <view class="key_item com_key" bindtap="onKey" data-key="{{key_item}}">{{key_item}}</view>
@@ -10,16 +10,15 @@
     </block>
   </view>
   <view class="key_row">
-    <view class="key_item com_key {{CapsLock?'key_hover':''}}" bindtap="onKey" data-key="↑">↑</view>
     <block wx:for="{{ThirdRow}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2">
       <view class="key_item com_key" bindtap="onKey" data-key="{{key_item}}">{{key_item}}</view>
     </block>
   </view>
   <view class="key_row">
-    <view class="shift com_key {{isShift?'key_hover':''}}" data-key="shift" bindtap="onKey">shift</view>
+    <view class="key_item com_key" style="pointer-events: none;" data-key="." bindtap="onKey">.</view>
     <block wx:for="{{FourthRow}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2">
       <view class="key_item com_key" bindtap="onKey" data-key="{{key_item}}">{{key_item}}</view>
     </block>
-    <view class="Del com_key" data-key="Del" bindtap="onKey">Del</view>
+    <view class="key_item com_key" data-key="Del" bindtap="onKey">Del</view>
   </view>
 </view>

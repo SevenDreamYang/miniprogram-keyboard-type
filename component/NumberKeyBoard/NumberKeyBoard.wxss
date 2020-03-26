@@ -1,39 +1,31 @@
-.SevenDreamY_keyboard{
+.SevenDreamY_Numberboard {
   background: #eee;
   padding: 20rpx 2rpx;
+  margin-top: 20rpx;
 }
 .key_row{
   display: flex;
   justify-content: center;
 }
 .com_key{
-  margin: 6rpx;
   background: #f8f8f8;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  border-radius:6rpx; 
   align-items: center;
-  box-shadow: 0rpx 2rpx 3rpx #333;
+  border: 1rpx solid #f2f2f2;
+  /* box-shadow: 0rpx 2rpx 3rpx #333; */
 }
 .key_item{
-  width: 64rpx;
-  height:80rpx;
+  width:calc(100%/3);
+  height:120rpx;
 }
-.shift{
-  width: 100rpx;
-  height:80rpx;
-}
-.Del{
-  width:100rpx;
-  height:80rpx;
-}
-
-.com_key:active{
+.com_key:active {
   opacity: 0.6;
   box-shadow: 0rpx 2rpx 3rpx #666 inset;
 }
-.key_hover{
-  font-weight: 650;
-  color: #1989fa;
+
+.hoverkColor{
+  color:#ff5151;
+  font-weight: 600;
 }

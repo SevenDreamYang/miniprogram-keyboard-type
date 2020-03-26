@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "keyboard": "/component/keyboard/keyboard"
+    "keyboard": "/component/keyboard/keyboard",
+    "NumberKeyBoard": "/component/NumberKeyBoard/NumberKeyBoard"
   }
 }

@@ -11,64 +11,50 @@ Component({
    * 组件的初始数据
    */
   data: {
-    key: [
-      [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
-      ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
-      ['↑','a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-      ['z', 'x', 'c', 'v', 'b', 'n', 'm',]
-    ]
-  },
-  _data: {
-    key: [
-      ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
-      ['↑','a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-      ['z', 'x', 'c', 'v', 'b', 'n', 'm', ]
-    ],
-     key2: [
-      ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
-      ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
-      ['Z', 'X', 'C', 'V', 'B', 'N', 'M']
-    ],
-    keyShift: ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')'],
-    keyShift2: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+    firstRow: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
+    SecondRow: ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+    ThirdRow: ['↑', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+    FourthRow: ['z', 'x', 'c', 'v', 'b', 'n', 'm', ],
+    SymbolShift: ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')'],
+    NumberShift: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
+    CapsLock: false,
+    isShift: false
   },
   /**
    * 组件的方法列表
    */
   methods: {
-    onKey(e){
+    onKey(e) {
       var key = e.currentTarget.dataset.key;
       console.log(key)
+      let {
+        SecondRow,
+        ThirdRow,
+        FourthRow,
+        SymbolShift,
+        NumberShift,
+        CapsLock,
+        isShift
+      } = this.data;
       switch (key) {
         case '↑':
-          this.AaBb()
+          this.setData({
+            CapsLock: !CapsLock,
+            SecondRow: SecondRow.map(item => !CapsLock ? item.toUpperCase() : item.toLowerCase()),
+            ThirdRow: ThirdRow.map(item => !CapsLock ? item.toUpperCase() : item.toLowerCase()),
+            FourthRow: FourthRow.map(item => !CapsLock ? item.toUpperCase() : item.toLowerCase())
+          })
           break;
         case 'shift':
-
+          this.setData({
+            isShift: !isShift,
+            firstRow: !isShift ? SymbolShift : NumberShift
+          })
           break;
         case 'Del':
-
+          console.log('Del')
           break;
       }
     },
-    AaBb(){
-        let keyArr = this.data.key;
-        keyArr.forEach(item => {
-          item.map(item2 => {
-            var re = /^[a-zA-Z]+$/;
-            if (re.test(item2)) {
-              item2 = item2.toUpperCase()
-              console.log(item2)
-            }
-          })
-        });
-        
-      setTimeout(() => {
-        console.log(keyArr)
-          this.setData({
-            key: keyArr
-          })
-      }, 12000);
-    }
   }
 })
