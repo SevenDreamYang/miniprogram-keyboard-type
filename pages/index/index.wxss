@@ -1,21 +1,37 @@
-/**index.wxss**/
-.userinfo {
+.box_input {
+  border: 1rpx solid #BFBFBF;
+  width: 80rpx;
+  height: 80rpx;
+  margin: 10rpx;
+}
+.box_input-box {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  padding: 20rpx;
+}
+
+.inputing {
+  opacity: 1;
+  animation: opa .6s alternate linear infinite;
+  font-size: 50rpx;
+  position: absolute;
+  bottom: 8rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #1E90FF;
+}
+.box_input {
+  display: flex;
+  justify-content: center;
   align-items: center;
+  position: relative;
 }
+@keyframes opa {
+  from {
+    opacity: 1;
+  }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
+  to {
+    opacity: 0;
+  }
 }

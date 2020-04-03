@@ -1,0 +1,60 @@
+<view class="SevenDreamY_keyboard"  hidden="{{isProvince}}">
+  <view class="special_row"   hidden="{{!isSpecial}}">
+    <block wx:for="{{FifthRow}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2">
+      <view class="special_item com_key " bindtap="onKey" data-key="{{key_item}}">{{key_item}}</view>
+    </block>
+  </view>
+  <view class="key_row">
+    <block wx:for="{{firstRow}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2">
+      <view class="key_item com_key  {{isSpecial?'prohibit_key':''}}" bindtap="onKey" data-key="{{key_item}}">{{key_item}}</view>
+    </block>
+  </view>
+  <view class="key_row">
+    <block wx:for="{{SecondRow}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2">
+      <view class="key_item com_key  {{isSpecial?'prohibit_key':''}}" bindtap="onKey" data-key="{{key_item}}">{{key_item}}</view>
+    </block>
+  </view>
+  <view class="key_row">
+    <block wx:for="{{ThirdRow}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2">
+      <view class="key_item com_key  {{isSpecial?'prohibit_key':''}}" bindtap="onKey" data-key="{{key_item}}">{{key_item}}</view>
+    </block>
+  </view>
+  <view class="key_row">
+    <block wx:for="{{FourthRow}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2">
+      <view class="key_item com_key  {{isSpecial?'prohibit_key':''}}" bindtap="onKey" data-key="{{key_item}}">{{key_item}}</view>
+    </block>
+    <view class="key_item com_key" bindtap="onKey" data-key="殊">殊</view>
+    <view class="key_item com_key  {{isSpecial?'prohibit_key':''}}" bindtap="onKey" data-key="省">省</view>
+    <view class="Del com_key  {{isSpecial?'prohibit_key':''}}" data-key="Del" bindtap="onKey">删除</view>
+  </view>
+</view>
+<view class="SevenDreamY_keyboard"  hidden="{{!isProvince}}">
+  <view class="key_row">
+    <block wx:for="{{provinceFirstRow}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2">
+      <view class="key_item com_key" bindtap="onKey" data-key="{{key_item}}">{{key_item}}</view>
+    </block>
+  </view>
+  <view class="key_row">
+    <block wx:for="{{provinceSecondRow}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2">
+      <view class="key_item com_key" bindtap="onKey" data-key="{{key_item}}">{{key_item}}</view>
+    </block>
+  </view>
+  <view class="key_row">
+    <block wx:for="{{provinceThirdRow}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2">
+      <view class="key_item com_key" bindtap="onKey" data-key="{{key_item}}">{{key_item}}</view>
+    </block>
+  </view>
+  <view class="key_row" style="justify-content:space-between">
+    <view  style="display:flex">
+      <block wx:for="{{provinceFourthRow}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2">
+        <view class="key_item com_key" bindtap="onKey" data-key="{{key_item}}">{{key_item}}</view>
+      </block>
+      <view class="key_item com_key" bindtap="onKey" data-key="WJ">WJ</view>
+    </view>
+    <!-- <view class="key_item com_key" bindtap="onKey" data-key="台">台</view> -->
+    <view  style="display:flex">
+        <view class="ABC_key com_key  " bindtap="onKey" data-key="ABC">ABC</view>
+        <view class="Del com_key" data-key="Del" bindtap="onKey">删除</view>
+    </view>
+  </view>
+</view>

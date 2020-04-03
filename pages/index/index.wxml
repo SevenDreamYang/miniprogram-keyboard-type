@@ -1,2 +1,13 @@
 <keyboard/>
-<NumberKeyBoard/>
+
+<!-- <view class="">
+    
+</view>
+<view class="" >
+    <view class="box_input-box">
+         <block wx:for="{{valueLength}}" wx:for-index="idex" wx:key="idex">
+            <view class="box_input">{{valueString[idex]}}<text class="inputing" wx:if="{{sub ==  idex}}">_</text></view>
+         </block>
+      </view>
+</view>
+<carKeyboard bind:ListenValue="getValue"  valueLength="{{6}}" /> -->

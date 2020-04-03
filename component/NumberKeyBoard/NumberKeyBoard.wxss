@@ -1,4 +1,66 @@
+.model-mark{
+  background: rgba(0, 0, 0, 0.3);
+  position:fixed;
+  width: 100%;
+  animation: show .1s ;
+  z-index:50
+}
+.Dialog{
+  width: 90%;
+  background: #fff;
+  margin: 0 5%;
+  transform: translateY(70%);
+  overflow: hidden;
+  border-radius:16rpx; 
+}
+.Dialog-content{
+  padding: 40rpx 24rpx;
+}
+.Dialog_title{
+  line-height: 1.7;
+  margin: 10rpx 0;
+  font-size: 30rpx;
+  text-align: center;
+  font-weight: 650;
+}
+.Dialog_input-box{
+  display: flex;  
+  justify-content: center;
+  padding: 20rpx;
+}
+.Dialog_input{
+  border: 1rpx solid #BFBFBF;
+  width: 80rpx;
+  height: 80rpx;
+  margin: 10rpx;
+}
+.Dialog_btnBox{
+  border-top: 2rpx solid #f2f2f2; 
+  display: flex;
+}
+.Dialog_btnCom{
+  width:calc(100%/2); 
+  height:120rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:32rpx; 
+}
+.btn-cancel{
+  border-right: .1rpx solid #f2f2f2; 
+}
+.btn-confirm{
+  border-left: .1rpx solid #f2f2f2; 
+}
+.Dialog_btnCom:active{
+  opacity: 0.6;
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 0rpx 2rpx 3rpx #666 inset;
+}
 .SevenDreamY_Numberboard {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
   background: #eee;
   padding: 20rpx 2rpx;
   margin-top: 20rpx;
@@ -24,8 +86,52 @@
   opacity: 0.6;
   box-shadow: 0rpx 2rpx 3rpx #666 inset;
 }
-
+.right_key {
+  background: #ff5151;
+  color:#fff
+}
+.left_key {
+  background: #eee;
+  color: #fff
+}
 .hoverkColor{
   color:#ff5151;
   font-weight: 600;
+}
+.Dialog_input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.inputing {
+  opacity: 1;
+  animation: opa .6s alternate linear infinite;
+  font-size: 50rpx;
+  position: absolute;
+  bottom: 8rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  color:#1E90FF;
+}
+
+@keyframes opa {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
