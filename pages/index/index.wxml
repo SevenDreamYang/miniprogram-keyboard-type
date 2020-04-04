@@ -1,7 +1,10 @@
-<keyboard/>
+<!-- 
+<input class="" value=""/>
 
+<keyboard/> -->
+<NumberKeyBoard  isShow="{{isTrue}}"  anonymous="{{false}}"  valueLength="{{6}}"/>
+<button bindtap="showbtn">测试打开</button>
 <!-- <view class="">
-    
 </view>
 <view class="" >
     <view class="box_input-box">

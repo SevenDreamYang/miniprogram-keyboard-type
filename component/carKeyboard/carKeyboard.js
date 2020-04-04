@@ -43,7 +43,9 @@ Component({
    */
    lifetimes: {
     attached: function () {
-      
+        wx.nextTick(()=>{
+          
+        })
     },
     detached: function () {
       console.log('移除')

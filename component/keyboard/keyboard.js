@@ -53,19 +53,21 @@ Component({
             ThirdRow: ThirdRow.map(item => !CapsLock ? item.toUpperCase() : item.toLowerCase()),
             FourthRow: FourthRow.map(item => !CapsLock ? item.toUpperCase() : item.toLowerCase())
           })
-          this.disorder()
           break;
         case 'shift':
           this.setData({
             isShift: !isShift,
             firstRow: !isShift ? SymbolShift : NumberShift
           })
-          this.disorder()
           break;
         case 'Del':
           console.log('Del')
           break;
-      }
+        default:
+          this.disorder()
+        
+        break;
+    }
     },
     disorder() {
       const {

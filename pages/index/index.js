@@ -5,7 +5,8 @@ Page({
   data: {
     valueLength: 6,
     valueString:[],
-    sub:0
+    sub:0,
+    isTrue:false
   },
   getValue(e){
     const {
@@ -15,6 +16,11 @@ Page({
     this.setData({
       valueString:value,
       sub: sub
+    })
+  },
+  showbtn(){
+    this.setData({
+      isTrue:!this.data.isTrue
     })
   }
 })

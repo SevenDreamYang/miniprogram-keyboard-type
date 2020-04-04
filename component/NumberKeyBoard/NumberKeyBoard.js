@@ -1,7 +1,8 @@
 // component/keyboard/keyboard.js
 import {
   windowHeight
-} from '../../utils/util'
+} from '../../utils/util';
+var AnimationFunction = require('../../utils/animation.js');
 Component({
   /**
    * 组件的属性列表
@@ -9,6 +10,7 @@ Component({
   options: {
     pureDataPattern: /^_/ // 指定所有 _ 开头的数据字段为纯数据字段
   },
+  behaviors: [AnimationFunction],
   properties: {
     valueLength: {
       type: Number,
@@ -43,11 +45,21 @@ Component({
   },
   lifetimes: {
     attached: function () {
-
-      console.log(this.data.windowHeight)
+      wx.nextTick(() => {
+        this.showKey();
+        this.initAnimation('.SevenDreamY_Numberboard');
+      })
     },
     detached: function () {
       console.log('移除')
+    },
+  },
+  pageLifetimes: {
+    show: function () { 
+      console.log('show')
+    },
+    hide: function () {
+      console.log('hide')
     },
   },
   /**
@@ -91,11 +103,23 @@ Component({
     },
     cancel() {
       this.triggerEvent('onCancel', {})
+      this.closeKey()
+      setTimeout(()=>{
+        this.setData({
+          isShow:false
+        })
+      },400)
     },
     confirm() {
       this.triggerEvent('onConfirm', {
         value: this.data._valueString.join('')
       })
+      this.closeKey()
+      setTimeout(()=>{
+        this.setData({
+          isShow:false
+        })
+      },400)
     }
   }
 })

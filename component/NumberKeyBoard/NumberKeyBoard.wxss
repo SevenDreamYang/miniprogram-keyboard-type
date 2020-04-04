@@ -9,7 +9,7 @@
   width: 90%;
   background: #fff;
   margin: 0 5%;
-  transform: translateY(70%);
+  transform: translateY(60%);
   overflow: hidden;
   border-radius:16rpx; 
 }

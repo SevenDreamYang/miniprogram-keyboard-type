@@ -1,9 +1,9 @@
-<view class="model-mark" style="height:{{windowHeight}}px" hidden="{{!isShow}}">
+<view class="model-mark" style="height:{{windowHeight}}px" wx:if="{{isShow}}">
   <view class="Dialog">
     <view class="Dialog-content">
       <view class="Dialog_title">支付密码</view>
       <view class="Dialog_input-box">
-         <block wx:for="{{valueLength}}" wx:for-index="idex">
+         <block wx:for="{{valueLength}}" wx:for-index="idex" wx:key="idex">
             <view class="Dialog_input">{{valueString[idex]}}<text class="inputing" wx:if="{{focusIdex ==  idex}}">_</text></view>
          </block>
       </view>
@@ -13,9 +13,9 @@
       <view class="btn-confirm Dialog_btnCom"  bindtap="confirm">确认</view>
     </view>
   </view>
-  <view class="SevenDreamY_Numberboard">
+  <view class="SevenDreamY_Numberboard"  animation="{{animationDOM}}">
     <view class="key_row">
-      <block wx:for="{{firstRow}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2">
+      <block wx:for="{{firstRow}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2" >
         <view class="key_item com_key" bindtap="onKey" data-key="{{key_item}}">{{key_item}}</view>
       </block>
     </view>
