@@ -31,6 +31,9 @@ Component({
       this.setData({
         focusIdex: valueString.length
       })
+    },
+    'isShow': function (Show) { 
+      Show ? this.showkey() : false;
     }
   },
   data: {
@@ -41,14 +44,11 @@ Component({
     windowHeight: windowHeight,
     valueString: [],
     _valueString: [],
-    focusIdex: 0
+    focusIdex: 0,
   },
   lifetimes: {
     attached: function () {
-      wx.nextTick(() => {
-        this.showKey();
-        this.initAnimation('.SevenDreamY_Numberboard');
-      })
+
     },
     detached: function () {
       console.log('移除')
@@ -101,25 +101,17 @@ Component({
         _valueString:[]
       })
     },
+    showkey(){
+      this.initAnimation('.SevenDreamY_Numberboard');
+      this.showKey();
+    },
     cancel() {
       this.triggerEvent('onCancel', {})
-      this.closeKey()
-      setTimeout(()=>{
-        this.setData({
-          isShow:false
-        })
-      },400)
     },
     confirm() {
       this.triggerEvent('onConfirm', {
         value: this.data._valueString.join('')
       })
-      this.closeKey()
-      setTimeout(()=>{
-        this.setData({
-          isShow:false
-        })
-      },400)
     }
   }
 })

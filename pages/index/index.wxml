@@ -2,8 +2,21 @@
 <input class="" value=""/>
 
 <keyboard/> -->
-<NumberKeyBoard  isShow="{{isTrue}}"  anonymous="{{false}}"  valueLength="{{6}}"/>
-<button bindtap="showbtn">测试打开</button>
+<button class="btn" size="default" hover-class="element-hover" style="background: firebrick" bindtap="showbtn">NumberKeyBoard</button>
+<button class="btn" size="default" hover-class="element-hover" style="background: darkcyan" bindtap="showbtn">keyboard</button>
+<button class="btn" size="default" hover-class="element-hover" style="background: forestgreen" bindtap="showbtn">carKeyboard</button>
+
+
+
+<view class="info" hover-class="none" hover-stop-propagation="false">
+    <image class="avatar" src="../../asset/SevenDreamYang.png"/>
+    <view class="name">SevenDreamYang</view>
+    <view class="name">项目地址</view>
+    <view class="name">Github</view>
+    <view class="https">https://github.com/SevenDreamYang/miniprogram-keyboard-type</view>
+    <view class="name">Gitee</view>
+    <view class="https">https://gitee.com/SevenDreamYang/miniprogram-keyboard-type</view>
+</view>
 <!-- <view class="">
 </view>
 <view class="" >

@@ -1,4 +1,4 @@
-<view class="model-mark" style="height:{{windowHeight}}px" wx:if="{{isShow}}">
+<view class="model-mark" style="height:{{windowHeight}}px;" hidden="{{!isShow}}" >
   <view class="Dialog">
     <view class="Dialog-content">
       <view class="Dialog_title">支付密码</view>
