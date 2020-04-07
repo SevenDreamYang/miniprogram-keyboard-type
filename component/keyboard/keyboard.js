@@ -4,7 +4,14 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    isDisorder: {
+      type: Boolean,
+      value: false
+    },
+    isShow:{
+      type: Boolean,
+      value: false
+    }
   },
 
   /**
@@ -22,7 +29,9 @@ Component({
   },
   lifetimes: {
     attached: function () {
-      this.disorder()
+      if (this.data.isDisorder) {
+          this.disorder();
+      }
       console.log(this.data.windowHeight)
     },
     detached: function () {
@@ -36,14 +45,15 @@ Component({
     onKey(e) {
       var key = e.currentTarget.dataset.key;
       console.log(key)
-      let {
+      const {
         SecondRow,
         ThirdRow,
         FourthRow,
         SymbolShift,
         NumberShift,
         CapsLock,
-        isShift
+        isShift,
+        isDisorder
       } = this.data;
       switch (key) {
         case '↑':
@@ -64,8 +74,14 @@ Component({
           console.log('Del')
           break;
         default:
-          this.disorder()
-        
+          if (isDisorder) {
+            this.disorder();
+          }
+          wx.showToast({
+            title: `键${key}`,
+            icon: 'none',
+            duration: 500
+          })
         break;
     }
     },

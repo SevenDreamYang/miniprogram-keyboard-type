@@ -23,6 +23,14 @@ Component({
     isShow:{
       type: Boolean,
       value: false
+    },
+    title:{
+      type: String,
+      value: ''
+    },
+    zIndex:{
+      type: Number,
+      value: 50000 
     }
   },
   observers: {
@@ -33,7 +41,10 @@ Component({
       })
     },
     'isShow': function (Show) { 
-      Show ? this.showkey() : false;
+      Show ? this.showkey() : this.setData({
+        valueString:[],
+        _valueString:[]
+      });
     }
   },
   data: {
@@ -46,22 +57,22 @@ Component({
     _valueString: [],
     focusIdex: 0,
   },
-  lifetimes: {
-    attached: function () {
+  // lifetimes: {
+  //   attached: function () {
 
-    },
-    detached: function () {
-      console.log('移除')
-    },
-  },
-  pageLifetimes: {
-    show: function () { 
-      console.log('show')
-    },
-    hide: function () {
-      console.log('hide')
-    },
-  },
+  //   },
+  //   detached: function () {
+  //     console.log('移除')
+  //   },
+  // },
+  // pageLifetimes: {
+  //   show: function () { 
+  //     console.log('show')
+  //   },
+  //   hide: function () {
+  //     console.log('hide')
+  //   },
+  // },
   /**
    * 组件的方法列表
    */
@@ -109,8 +120,12 @@ Component({
       this.triggerEvent('onCancel', {})
     },
     confirm() {
+      const {
+        _valueString
+      } = this.data;
       this.triggerEvent('onConfirm', {
-        value: this.data._valueString.join('')
+        value:_valueString.join(''),
+        length: _valueString.length
       })
     }
   }

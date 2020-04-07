@@ -1,31 +1,3 @@
-/* .box_input {
-  border: 1rpx solid #BFBFBF;
-  width: 80rpx;
-  height: 80rpx;
-  margin: 10rpx;
-}
-.box_input-box {
-  display: flex;
-  justify-content: center;
-  padding: 20rpx;
-}
-
-.inputing {
-  opacity: 1;
-  animation: opa .6s alternate linear infinite;
-  font-size: 50rpx;
-  position: absolute;
-  bottom: 8rpx;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #1E90FF;
-}
-.box_input {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-} */
 .btn{
   margin: 60rpx 0;
   color:#fff;

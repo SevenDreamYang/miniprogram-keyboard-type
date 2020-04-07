@@ -1,0 +1,4 @@
+.btn-box{
+    display: flex;
+    margin: 60rpx 0;
+}

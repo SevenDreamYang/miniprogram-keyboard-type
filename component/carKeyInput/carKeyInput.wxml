@@ -1,0 +1,10 @@
+
+<view class="box">
+  <view class="box-content">
+    <view class="box_input-box">
+        <block wx:for="{{valueLength}}" wx:for-index="idex" wx:key="idex">
+          <view class="box_input">{{valueString[idex]}}<text class="inputing" wx:if="{{focusIdex ==  idex}}">_</text></view>
+        </block>
+    </view>
+  </view>
+</view>

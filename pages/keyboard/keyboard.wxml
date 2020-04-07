@@ -1,0 +1,13 @@
+<!--pages/keyboard/keyboard.wxml-->
+<view class="" hover-class="none" hover-stop-propagation="false">
+     <view class="" style="text-align:center;background:#ff5151;color:#fff">
+         有序键盘
+     </view>
+     <keyboard  isDisorder="{{false}}" />
+</view>
+<view class="" hover-class="none" hover-stop-propagation="false">
+    <view class="" style="text-align:center;background:#ff5151;color:#fff">
+        无序键盘
+     </view>
+    <keyboard  isDisorder="{{true}}" />
+</view>

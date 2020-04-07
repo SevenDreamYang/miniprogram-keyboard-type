@@ -1,10 +1,6 @@
-<!-- 
-<input class="" value=""/>
-
-<keyboard/> -->
-<button class="btn" size="default" hover-class="element-hover" style="background: firebrick" bindtap="showbtn">NumberKeyBoard</button>
-<button class="btn" size="default" hover-class="element-hover" style="background: darkcyan" bindtap="showbtn">keyboard</button>
-<button class="btn" size="default" hover-class="element-hover" style="background: forestgreen" bindtap="showbtn">carKeyboard</button>
+<button class="btn" size="default" hover-class="element-hover" data-page="Passwordkeyboard" style="background: firebrick" bindtap="btnGo">Passwordkeyboard</button>
+<button class="btn" size="default" hover-class="element-hover" data-page="keyboard" style="background: darkcyan" bindtap="btnGo">keyboard(废弃)</button>
+<button class="btn" size="default" hover-class="element-hover" data-page="carKeyboard" style="background: forestgreen" bindtap="btnGo">carKeyboard</button>
 
 
 
@@ -17,13 +13,3 @@
     <view class="name">Gitee</view>
     <view class="https">https://gitee.com/SevenDreamYang/miniprogram-keyboard-type</view>
 </view>
-<!-- <view class="">
-</view>
-<view class="" >
-    <view class="box_input-box">
-         <block wx:for="{{valueLength}}" wx:for-index="idex" wx:key="idex">
-            <view class="box_input">{{valueString[idex]}}<text class="inputing" wx:if="{{sub ==  idex}}">_</text></view>
-         </block>
-      </view>
-</view>
-<carKeyboard bind:ListenValue="getValue"  valueLength="{{6}}" /> -->

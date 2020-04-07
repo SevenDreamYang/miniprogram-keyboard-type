@@ -1,6 +1,9 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/carKeyboard/carKeyboard",
+    "pages/keyboard/keyboard",
+    "pages/Passwordkeyboard/Passwordkeyboard"
   ],
   "window": {
     "backgroundTextStyle": "light",

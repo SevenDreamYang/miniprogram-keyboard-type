@@ -1,0 +1,3 @@
+<!--pages/carKeyboard/carKeyboard.wxml-->
+<carKeyInput/>
+<carKeyboard/>

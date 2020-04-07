@@ -33,13 +33,35 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
-		"miniprogram": {
+		"gamePlugin": {
 			"current": -1,
 			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/Passwordkeyboard/Passwordkeyboard",
+					"pathName": "pages/Passwordkeyboard/Passwordkeyboard",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/carKeyboard/carKeyboard",
+					"pathName": "pages/carKeyboard/carKeyboard",
+					"scene": null
+				}
+			]
 		}
 	}
 }
