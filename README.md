@@ -78,4 +78,4 @@
 
 ## 体验
 
-![体验码](./)
+![体验码](https://github.com/SevenDreamYang/miniprogram-keyboard-type/blob/master/asset/1.jpg)
