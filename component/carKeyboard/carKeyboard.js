@@ -7,18 +7,53 @@ Component({
     pureDataPattern: /^_/ // 指定所有 _ 开头的数据字段为纯数据字段
   },
   properties: {
-    valueLength:{
-      type:Number,
+    valueLength: {
+      type: Number,
       value: 6
+    },
+    type: {
+      type: String,
+      value: ''
     }
   },
   observers: {
-    // 'valueString': function (valueString) {
-    //   // 在 numberA 或者 numberB 被设置时，执行这个函数
-    //   this.setData({
-    //     _focusIdex: valueString.length
-    //   })
-    // }
+    '_valueString': function (_valueString) {
+      const length = _valueString.length;
+      switch (length) {
+        case 0:
+          this.setData({
+            firstNotKeyValue: true,
+            isProvince: true
+          })
+          break;
+        case 1:
+          this.setData({
+            firstNotKeyValue: false,
+            isProvince: false,
+            SecondNotKeyValue: true,
+            provinceKey: true,
+            specialKey: true
+          })
+          break;
+        case 2:
+          this.setData({
+            SecondNotKeyValue: false
+          })
+          break;
+        case 3:
+
+          break;
+        case 4:
+
+          break;
+        case 5:
+
+          break;
+        case 6:
+
+          break;
+      }
+    }
   },
   /**
    * 组件的初始数据
@@ -33,17 +68,24 @@ Component({
     provinceSecondRow: ['浙', '皖', '闽', '赣', '鲁', '豫', '鄂', '湘', '粤', '桂'],
     provinceThirdRow: ['琼', '渝', '川', '贵', '云', '藏', '陕', '甘', '青', '宁'],
     provinceFourthRow: ['新'],
-    isProvince: false,
+    isProvince: true,
     isSpecial: false,
     _valueString: [],
-    _focusIdex: 0
+    _focusIdex: 0,
+    firstNotKeyValue: false,
+    SecondNotKeyValue: false,
+    provinceKey: false,
+    specialKey: false,
   },
   /**
    * 组件的方法列表
    */
-   lifetimes: {
+  lifetimes: {
     attached: function () {
-        
+      this.setData({
+        firstKeyValue: true,
+        isProvince: true
+      })
     },
     detached: function () {
       console.log('移除')
@@ -74,7 +116,7 @@ Component({
           this.triggerEvent('ListenValue', {
             value: _valueString,
             sub: _valueString.length
-          })    
+          })
           break;
         case '殊':
           this.setData({

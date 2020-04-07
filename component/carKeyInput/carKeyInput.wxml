@@ -1,10 +1,76 @@
-
+<view class="">
+  <swiper duration="{{500}}"  previous-margin="80rpx"  next-margin="80rpx" class="carNumber_swiper">
+    <swiper-item>
+      <view class="comCarNumber YelloCarNuber">
+        <view class="box-border-balck">{{}}</view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="comCarNumber BlueCarNuber">
+        <view class="box-border-White">{{}}</view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="comCarNumber newCarNuber">
+        <view class="box-border-balck">{{}}</view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="comCarNumber WhiteCarNumber">
+        <view class="box-border-balck">{{}}</view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="comCarNumber BlackCarNumber">
+        <view class="box-border-White">{{}}</view>
+      </view>
+    </swiper-item>
+  </swiper>
+  <view class="carNumber_box">
+    <block wx:for="{{typeObj}}" wx:for-item="item" wx:for-index="idx" wx:key="idx">
+      <view class="carNumber_item" data-length="{{item.lengths}}">{{item.type}}</view>
+    </block>
+  </view>
+</view>
 <view class="box">
   <view class="box-content">
     <view class="box_input-box">
-        <block wx:for="{{valueLength}}" wx:for-index="idex" wx:key="idex">
-          <view class="box_input">{{valueString[idex]}}<text class="inputing" wx:if="{{focusIdex ==  idex}}">_</text></view>
-        </block>
+      <view class="box_input_flex first_box">
+        <view class="box_input">
+          {{value[0]}}
+          <text class="inputing" wx:if="{{focusIdex ==  0}}">_</text>
+        </view>
+        <view class="box_input">
+          {{value[1]}}
+          <text class="inputing" wx:if="{{focusIdex ==  1}}">_</text>
+        </view>
+      </view>
+      <view class="box_input_flex">
+        <view class="box_input">
+          {{value[2]}}
+          <text class="inputing" wx:if="{{focusIdex ==  2}}">_</text>
+        </view>
+        <view class="box_input">
+          {{value[3]}}
+          <text class="inputing" wx:if="{{focusIdex ==  3}}">_</text>
+        </view>
+        <view class="box_input">
+          {{value[4]}}
+          <text class="inputing" wx:if="{{focusIdex ==  4}}">_</text>
+        </view>
+        <view class="box_input">
+          {{value[5]}}
+          <text class="inputing" wx:if="{{focusIdex ==  5}}">_</text>
+        </view>
+        <view class="box_input">
+          {{value[6]}}
+          <text class="inputing" wx:if="{{focusIdex ==  6}}">_</text>
+        </view>
+        <view class="box_input" wx:if="{{false}}">
+          {{value[7]}}
+          <text class="inputing" wx:if="{{focusIdex ==  7}}">_</text>
+        </view>
+      </view>
     </view>
   </view>
 </view>

@@ -55,3 +55,23 @@
   box-shadow: 0rpx 0rpx 0rpx;
   color: darkgray;
 }
+.inputing {
+  opacity: 1;
+  animation: opa .6s alternate linear infinite;
+  font-size: 50rpx;
+  position: absolute;
+  bottom: 8rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #1E90FF;
+}
+
+@keyframes opa {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

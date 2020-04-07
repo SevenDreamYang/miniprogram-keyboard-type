@@ -8,17 +8,13 @@ Component({
   },
   behaviors: [],
   properties: {
-    valueLength: {
-      type: Number,
+    value: {
+      type: Array,
       value: 6
     },
-    // error:{
-    //   type: String,
-    //   value: ''
-    // },
   },
   observers: {
-    'valueString': function (valueString) {
+    'value': function (valueString) {
       // 在 numberA 或者 numberB 被设置时，执行这个函数
       this.setData({
         focusIdex: valueString.length
@@ -26,9 +22,27 @@ Component({
     },
   },
   data: {
-    valueString: [],
+    value: [],
+    typeObj: [{
+      type: '黄牌',
+      lengths: 7
+    }, {
+      type: '蓝牌',
+      lengths: 7
+    }, {
+      type: '新能源',
+      lengths: 8
+    }, {
+      type: '白牌',
+      lengths: 7
+    }, {
+      type: '黑牌',
+      lengths: 7
+    }],
+    error: '',
+    focusIdex: 0
   },
   methods: {
-   
+      
   }
 })
