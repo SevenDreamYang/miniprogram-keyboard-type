@@ -21,7 +21,9 @@
   justify-content: center;
   padding: 20rpx;
 }
-
+.SelectHover{
+  color:#1E90FF
+}
 .inputing {
   opacity: 1;
   animation: opa .6s alternate linear infinite;

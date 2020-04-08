@@ -1,5 +1,5 @@
 <view class="">
-  <swiper duration="{{500}}"  previous-margin="80rpx"  next-margin="80rpx" class="carNumber_swiper">
+  <swiper duration="{{500}}"  previous-margin="80rpx"  current="{{CarNumid}}"  next-margin="80rpx" class="carNumber_swiper"  bindchange="swiperChange">
     <swiper-item>
       <view class="comCarNumber YelloCarNuber">
         <view class="box-border-balck">{{}}</view>
@@ -28,7 +28,7 @@
   </swiper>
   <view class="carNumber_box">
     <block wx:for="{{typeObj}}" wx:for-item="item" wx:for-index="idx" wx:key="idx">
-      <view class="carNumber_item" data-length="{{item.lengths}}">{{item.type}}</view>
+      <view class="carNumber_item {{CarNumid == idx?'SelectHover':''}}" data-idex="{{idx}}"  data-length="{{item.lengths}}" bindtap="onClickType">{{item.type}}</view>
     </block>
   </view>
 </view>
@@ -66,7 +66,7 @@
           {{value[6]}}
           <text class="inputing" wx:if="{{focusIdex ==  6}}">_</text>
         </view>
-        <view class="box_input" wx:if="{{false}}">
+        <view class="box_input" wx:if="{{valueLength == 8}}">
           {{value[7]}}
           <text class="inputing" wx:if="{{focusIdex ==  7}}">_</text>
         </view>

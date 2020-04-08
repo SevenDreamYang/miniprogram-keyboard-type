@@ -1,4 +1,4 @@
-// component/keyboard/keyboard.js
+const CarNumber = require('../../utils/CarNumber');
 Component({
   /**
    * 组件的属性列表
@@ -6,18 +6,24 @@ Component({
   options: {
     pureDataPattern: /^_/ // 指定所有 _ 开头的数据字段为纯数据字段
   },
+  behaviors: [CarNumber],
   properties: {
     valueLength: {
       type: Number,
-      value: 6
+      value: 7
     },
     type: {
       type: String,
       value: ''
+    },
+    CarNumid:{
+      type: Number,
+      value: 0
     }
   },
   observers: {
     '_valueString': function (_valueString) {
+      // console.log(_valueString)
       const length = _valueString.length;
       switch (length) {
         case 0:
@@ -53,6 +59,22 @@ Component({
 
           break;
       }
+      wx.nextTick(()=>{
+         this.triggerEvent('ListenValue', {
+          value: _valueString || [],
+          sub: _valueString.length
+        })
+      })
+     
+    },
+    'CarNumid': function (i) {
+      const {
+        typeObj
+      } = this.data;
+       this.setData({
+         _valueString: [],
+         valueLength: typeObj[i].lengths || 0
+       })
     }
   },
   /**
@@ -70,12 +92,12 @@ Component({
     provinceFourthRow: ['新'],
     isProvince: true,
     isSpecial: false,
-    _valueString: [],
     _focusIdex: 0,
     firstNotKeyValue: false,
     SecondNotKeyValue: false,
     provinceKey: false,
-    specialKey: false,
+    specialKey: false, 
+    _valueString: [],
   },
   /**
    * 组件的方法列表
@@ -113,10 +135,6 @@ Component({
           this.setData({
             _valueString
           })
-          this.triggerEvent('ListenValue', {
-            value: _valueString,
-            sub: _valueString.length
-          })
           break;
         case '殊':
           this.setData({
@@ -129,14 +147,9 @@ Component({
             this.setData({
               _valueString
             })
-            this.triggerEvent('ListenValue', {
-              value: _valueString,
-              sub: _valueString.length
-            })
           }
           break;
       }
     },
-
   }
 })

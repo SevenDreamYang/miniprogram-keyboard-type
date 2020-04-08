@@ -1,4 +1,4 @@
-// component/carKeyInput/carKeyInput.js
+const CarNumber = require('../../utils/CarNumber');
 Component({
   /**
    * 组件的属性列表
@@ -6,7 +6,7 @@ Component({
   options: {
     pureDataPattern: /^_/ // 指定所有 _ 开头的数据字段为纯数据字段
   },
-  behaviors: [],
+  behaviors: [CarNumber],
   properties: {
     value: {
       type: Array,
@@ -14,35 +14,43 @@ Component({
     },
   },
   observers: {
-    'value': function (valueString) {
+    'value': function (value) {
       // 在 numberA 或者 numberB 被设置时，执行这个函数
       this.setData({
-        focusIdex: valueString.length
+        focusIdex: value.length
       })
     },
+    'CarNumid': function (CarNumid) {
+        const {
+          typeObj
+        } = this.data;
+        this.setData({
+          valueLength: typeObj[CarNumid].lengths
+        })
+       this.triggerEvent('ChangeCard', {
+          CarNumid: CarNumid
+       })
+    }
   },
   data: {
     value: [],
-    typeObj: [{
-      type: '黄牌',
-      lengths: 7
-    }, {
-      type: '蓝牌',
-      lengths: 7
-    }, {
-      type: '新能源',
-      lengths: 8
-    }, {
-      type: '白牌',
-      lengths: 7
-    }, {
-      type: '黑牌',
-      lengths: 7
-    }],
     error: '',
-    focusIdex: 0
+    focusIdex: 0,
+    CarNumid: 0,
+    valueLength:7
   },
   methods: {
-      
+    swiperChange(e){
+      const current =  e.detail.current;
+      this.setData({
+        CarNumid: current,
+      })
+    },
+    onClickType(e){
+      const current = e.currentTarget.dataset.idex
+      this.setData({
+        CarNumid: current,
+      })
+    }
   }
 })

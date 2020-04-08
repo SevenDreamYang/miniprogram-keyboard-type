@@ -5,12 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    value:""
+    value:"",
+    CarNumid: 0
   },
   getValue(e){
-    console.log(e.detail.value)
+
     this.setData({
-      value: e.detail.value
+      value: e.detail.value 
+    })
+  },
+  ChangeCard(e){
+    this.setData({
+      CarNumid: e.detail.CarNumid
     })
   }
 })

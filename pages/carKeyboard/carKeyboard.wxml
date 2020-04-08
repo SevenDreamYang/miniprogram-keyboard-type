@@ -1,3 +1,9 @@
 <!--pages/carKeyboard/carKeyboard.wxml-->
-<carKeyInput  value="{{value}}"/>
-<carKeyboard bind:ListenValue="getValue"/>
+<carKeyInput  
+    value="{{value}}" 
+    bind:ChangeCard="ChangeCard"
+/>
+<carKeyboard 
+    bind:ListenValue="getValue"  
+    CarNumid="{{CarNumid}}"
+/>

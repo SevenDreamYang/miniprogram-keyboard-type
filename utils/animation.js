@@ -3,9 +3,6 @@ module.exports = Behavior({
     data: {
         keyHeight:286
     },
-    properties: {
-
-    },
     attached: function () {
         this.animation = wx.createAnimation({
             duration: 200,
