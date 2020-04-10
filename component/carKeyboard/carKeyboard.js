@@ -1,12 +1,12 @@
-const CarNumber = require('../../utils/CarNumber');
+const CarNumberCommon = require('../../utils/CarNumberCommon');
+import {
+  ordinaryCarNum, newEnergyCarNum
+} from '../../utils/ChineseCarNumberExp';
 Component({
-  /**
-   * 组件的属性列表
-   */
   options: {
-    pureDataPattern: /^_/ // 指定所有 _ 开头的数据字段为纯数据字段
+    pureDataPattern: /^_/ 
   },
-  behaviors: [CarNumber],
+  behaviors: [CarNumberCommon],
   properties: {
     valueLength: {
       type: Number,
@@ -56,7 +56,12 @@ Component({
 
           break;
         case 6:
-
+          
+          break;
+        // case 7:
+        case 8:
+          var msg = newEnergyCarNum(_valueString.join(''),true)
+          console.log(msg)
           break;
       }
       wx.nextTick(()=>{
@@ -77,9 +82,6 @@ Component({
        })
     }
   },
-  /**
-   * 组件的初始数据
-   */
   data: {
     firstRow: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
     SecondRow: ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
@@ -92,7 +94,6 @@ Component({
     provinceFourthRow: ['新'],
     isProvince: true,
     isSpecial: false,
-    _focusIdex: 0,
     firstNotKeyValue: false,
     SecondNotKeyValue: false,
     provinceKey: false,
@@ -133,7 +134,8 @@ Component({
         case 'Del':
           _valueString.pop();
           this.setData({
-            _valueString
+            _valueString,
+            specialKey:true
           })
           break;
         case '殊':
@@ -142,10 +144,11 @@ Component({
           })
           break;
         default:
-          if (_valueString.length <= valueLength) {
+          if (_valueString.length < valueLength) {
             _valueString.push(key)
             this.setData({
-              _valueString
+              _valueString,
+              isSpecial: (key == '港' || key == '澳' || key == '学' || key == '警' || key == '应急') ? true : false
             })
           }
           break;

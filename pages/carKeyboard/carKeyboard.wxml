@@ -3,6 +3,9 @@
     value="{{value}}" 
     bind:ChangeCard="ChangeCard"
 />
+<view style="padding:20rpx;text-align:center">
+    当前输入:{{valueStr}}
+</view>
 <carKeyboard 
     bind:ListenValue="getValue"  
     CarNumid="{{CarNumid}}"

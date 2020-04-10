@@ -1,7 +1,8 @@
 // pages/NumberKeyBoard/NumberKeyBoard.js
 Page({
   data: {
-    isShow:false
+    isShow:false,
+    anonymous:false
   },
   openkey(){
     const isShow = this.data.isShow
@@ -23,6 +24,11 @@ Page({
           })
         }
       }
+    })
+  },
+  switch1Change(e){
+    this.setData({
+      anonymous: e.detail.value
     })
   }
 })

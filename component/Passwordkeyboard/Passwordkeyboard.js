@@ -10,6 +10,7 @@ Component({
   options: {
     pureDataPattern: /^_/ // 指定所有 _ 开头的数据字段为纯数据字段
   },
+  externalClasses: ['right_key', 'btn-confirm'],
   behaviors: [AnimationFunction],
   properties: {
     valueLength: {
@@ -31,6 +32,10 @@ Component({
     zIndex:{
       type: Number,
       value: 50000 
+    },
+    safeAreaInsetBottom:{
+      type: Boolean,
+      value: false
     }
   },
   observers: {
@@ -56,26 +61,15 @@ Component({
     valueString: [],
     _valueString: [],
     focusIdex: 0,
+    errText: ''
   },
-  // lifetimes: {
-  //   attached: function () {
+  pageLifetimes: {
+    // 组件所在页面的生命周期函数
+    show: function () {
+      this.initAnimation('.SevenDreamY_Numberboard');
+    },
+  },
 
-  //   },
-  //   detached: function () {
-  //     console.log('移除')
-  //   },
-  // },
-  // pageLifetimes: {
-  //   show: function () { 
-  //     console.log('show')
-  //   },
-  //   hide: function () {
-  //     console.log('hide')
-  //   },
-  // },
-  /**
-   * 组件的方法列表
-   */
   methods: {
     onKey(e) {
       let key = e.target.dataset.key;
@@ -95,7 +89,8 @@ Component({
           })
           break;
         default:
-          if (valueString.length <= valueLength) {
+          console.log(valueString.length, valueLength)
+          if (valueString.length < valueLength) {
             valueString.push(!anonymous ? key : '*')
             _valueString.push(key)
             this.setData({
@@ -113,19 +108,27 @@ Component({
       })
     },
     showkey(){
-      this.initAnimation('.SevenDreamY_Numberboard');
       this.showKey();
+      this.setData({
+        errText: ''
+      })
     },
     cancel() {
       this.triggerEvent('onCancel', {})
     },
     confirm() {
       const {
-        _valueString
+        _valueString,
+        valueLength
       } = this.data;
+      if (_valueString.length !== valueLength) {
+        this.setData({
+           errText: '密码长度不足'
+        })
+        return false;
+      }
       this.triggerEvent('onConfirm', {
-        value:_valueString.join(''),
-        length: _valueString.length
+        value:_valueString.join('')
       })
     }
   }

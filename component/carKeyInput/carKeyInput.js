@@ -1,4 +1,4 @@
-const CarNumber = require('../../utils/CarNumber');
+const CarNumberCommon = require('../../utils/CarNumberCommon');
 Component({
   /**
    * 组件的属性列表
@@ -6,7 +6,7 @@ Component({
   options: {
     pureDataPattern: /^_/ // 指定所有 _ 开头的数据字段为纯数据字段
   },
-  behaviors: [CarNumber],
+  behaviors: [CarNumberCommon],
   properties: {
     value: {
       type: Array,

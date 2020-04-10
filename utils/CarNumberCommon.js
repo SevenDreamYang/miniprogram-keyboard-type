@@ -13,7 +13,7 @@ module.exports = Behavior({
             type: '白牌',
             lengths: 7
         }, {
-            type: '黑牌',
+            type: '港澳&使领馆',
             lengths: 7
         }],
     }

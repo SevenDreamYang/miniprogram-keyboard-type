@@ -6,12 +6,14 @@ Page({
    */
   data: {
     value:"",
+    valueStr:'',
     CarNumid: 0
   },
   getValue(e){
-
+    const value = e.detail.value;
     this.setData({
-      value: e.detail.value 
+      value: value,
+      valueStr: value.join('').toString()
     })
   },
   ChangeCard(e){

@@ -14,7 +14,7 @@
   border: 1rpx solid #BFBFBF;
   width: 80rpx;
   height: 80rpx;
-  margin: 2rpx;
+
 }
 .box_input-box {
   display: flex;
