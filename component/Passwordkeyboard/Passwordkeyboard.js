@@ -2,7 +2,7 @@
 import {
   windowHeight
 } from '../../utils/util';
-var AnimationFunction = require('../../utils/animation.js');
+const AnimationFunction = require('../../utils/animation.js');
 Component({
   /**
    * 组件的属性列表

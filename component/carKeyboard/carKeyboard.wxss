@@ -1,9 +1,12 @@
+.showBox{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
 .SevenDreamY_keyboard{
   background: #eee;
   padding: 30rpx 2rpx;
   width: 100%;
-  position: fixed;
-  bottom: 0;
 }
 .key_row{
   display: flex;

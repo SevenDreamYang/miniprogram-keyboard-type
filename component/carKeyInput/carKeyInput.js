@@ -16,20 +16,23 @@ Component({
   observers: {
     'value': function (value) {
       // 在 numberA 或者 numberB 被设置时，执行这个函数
+      const newValue = Array.from(value)
+      newValue.splice(2, 0, '·')
       this.setData({
-        focusIdex: value.length
+        focusIdex: value.length,
+        valueStr: value.length > 2 ? newValue.join('') : value.join('')
       })
     },
     'CarNumid': function (CarNumid) {
-        const {
-          typeObj
-        } = this.data;
-        this.setData({
-          valueLength: typeObj[CarNumid].lengths
-        })
-       this.triggerEvent('ChangeCard', {
-          CarNumid: CarNumid
-       })
+      const {
+        typeObj
+      } = this.data;
+      this.setData({
+        valueLength: typeObj[CarNumid].lengths
+      })
+      this.triggerEvent('onChangeCard', {
+        CarNumid: CarNumid
+      })
     }
   },
   data: {
@@ -37,20 +40,24 @@ Component({
     error: '',
     focusIdex: 0,
     CarNumid: 0,
-    valueLength:7
+    valueLength: 7,
+    valueStr: ''
   },
   methods: {
-    swiperChange(e){
-      const current =  e.detail.current;
+    swiperChange(e) {
+      const current = e.detail.current;
       this.setData({
         CarNumid: current,
       })
     },
-    onClickType(e){
+    onClickType(e) {
       const current = e.currentTarget.dataset.idex
       this.setData({
         CarNumid: current,
       })
+    },
+    onClickBox(e) {
+      this.triggerEvent('onClickBox', {})
     }
   }
 })

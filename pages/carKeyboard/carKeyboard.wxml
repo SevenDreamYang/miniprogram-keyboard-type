@@ -1,12 +1,13 @@
 <!--pages/carKeyboard/carKeyboard.wxml-->
 <carKeyInput  
     value="{{value}}" 
-    bind:ChangeCard="ChangeCard"
+    bind:onChangeCard="onChangeCard"
+    bind:onClickBox="onClickBox"
 />
-<view style="padding:20rpx;text-align:center">
-    当前输入:{{valueStr}}
-</view>
+<view style="padding:20rpx;text-align:center;font-size:20rpx;color:#999">点击输入框弹起键盘,白色键盘暂不支持效果</view>
+<view style="padding:20rpx;text-align:center;color:#ff5151">{{msg}}</view>
 <carKeyboard 
     bind:ListenValue="getValue"  
     CarNumid="{{CarNumid}}"
+    isShow="{{show}}"
 />

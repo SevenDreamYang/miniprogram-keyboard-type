@@ -1,12 +1,18 @@
-const CarNumberCommon = require('../../utils/CarNumberCommon');
 import {
-  ordinaryCarNum, newEnergyCarNum
+  ordinaryCarNum,
+  newEnergyCarNum,
+  YellowCarNum,
+  WhitecCarNum,
+  BlackCarNum,
+  JUDGE
 } from '../../utils/ChineseCarNumberExp';
+const CarNumberCommon = require('../../utils/CarNumberCommon');
+const AnimationFunction = require('../../utils/animation.js');
 Component({
   options: {
-    pureDataPattern: /^_/ 
+    pureDataPattern: /^_/
   },
-  behaviors: [CarNumberCommon],
+  behaviors: [CarNumberCommon, AnimationFunction],
   properties: {
     valueLength: {
       type: Number,
@@ -16,70 +22,56 @@ Component({
       type: String,
       value: ''
     },
-    CarNumid:{
+    CarNumid: {
       type: Number,
       value: 0
-    }
+    },
+    isShow: {
+      type: Boolean,
+      value: false
+    },
   },
   observers: {
     '_valueString': function (_valueString) {
-      // console.log(_valueString)
       const length = _valueString.length;
-      switch (length) {
-        case 0:
-          this.setData({
-            firstNotKeyValue: true,
-            isProvince: true
-          })
-          break;
-        case 1:
-          this.setData({
-            firstNotKeyValue: false,
-            isProvince: false,
-            SecondNotKeyValue: true,
-            provinceKey: true,
-            specialKey: true
-          })
-          break;
-        case 2:
-          this.setData({
-            SecondNotKeyValue: false
-          })
-          break;
-        case 3:
-
-          break;
-        case 4:
-
-          break;
-        case 5:
-
-          break;
-        case 6:
-          
-          break;
-        // case 7:
-        case 8:
-          var msg = newEnergyCarNum(_valueString.join(''),true)
-          console.log(msg)
-          break;
-      }
-      wx.nextTick(()=>{
-         this.triggerEvent('ListenValue', {
+      wx.nextTick(() => {
+        const {
+          CarNumid,
+          valueLength,
+          _FNARRAY
+        } = this.data;
+        const IS_YWB = /^[034]{1}$/
+        this.setData({
+          isProvince: (length == 0 || (_valueString[0] == 'WJ' && length == 1)),
+          SecondNotKeyValue: !(length >= 2) ,
+          specialKey: !((IS_YWB.test(CarNumid)) && (length == valueLength - 1)),
+          provinceKey: !(length == 0),
+          WJkey: !(CarNumid === 3 && length === 0),
+          H_Ckey: !(JUDGE.IS_HK_MC.test(_valueString.join(''))),
+          firstKeyValue: !(CarNumid === 3 && !(JUDGE.IS_WJ.test(_valueString.join(''))))
+        })
+        this.triggerEvent('ListenValue', {
           value: _valueString || [],
-          sub: _valueString.length
+          sub: _valueString.length,
+          exp: !(length == valueLength) ? {} : _FNARRAY[CarNumid](_valueString.join(''))
         })
       })
-     
+
     },
     'CarNumid': function (i) {
       const {
         typeObj
       } = this.data;
-       this.setData({
-         _valueString: [],
-         valueLength: typeObj[i].lengths || 0
-       })
+      this.setData({
+        _valueString: [],
+        valueLength: typeObj[i].lengths || 0
+      })
+    },
+    'isShow': function (Show) {
+      // console.log(Show)
+      wx.nextTick(() => {
+        Show ? this.showKey() : this.closeKey()
+      })
     }
   },
   data: {
@@ -92,17 +84,22 @@ Component({
     provinceSecondRow: ['浙', '皖', '闽', '赣', '鲁', '豫', '鄂', '湘', '粤', '桂'],
     provinceThirdRow: ['琼', '渝', '川', '贵', '云', '藏', '陕', '甘', '青', '宁'],
     provinceFourthRow: ['新'],
-    isProvince: true,
-    isSpecial: false,
-    firstNotKeyValue: false,
+    isProvince: true, // 省键盘
+    isSpecial: false, // 打开特殊
     SecondNotKeyValue: false,
     provinceKey: false,
-    specialKey: false, 
+    specialKey: false,
     _valueString: [],
+    H_Ckey: false,
+    _FNARRAY: [
+      YellowCarNum,
+      ordinaryCarNum,
+      newEnergyCarNum,
+      WhitecCarNum,
+      BlackCarNum,
+    ]
   },
-  /**
-   * 组件的方法列表
-   */
+
   lifetimes: {
     attached: function () {
       this.setData({
@@ -114,10 +111,16 @@ Component({
       console.log('移除')
     },
   },
+  pageLifetimes: {
+    show: function () {
+      // 初始化动画
+      this.initAnimation('.showBox');
+    },
+  },
   methods: {
     onKey(e) {
       const key = e.currentTarget.dataset.key;
-      console.log(key)
+      // console.log(key)
       const {
         isProvince,
         isSpecial,
@@ -135,7 +138,7 @@ Component({
           _valueString.pop();
           this.setData({
             _valueString,
-            specialKey:true
+            specialKey: true
           })
           break;
         case '殊':
@@ -146,9 +149,13 @@ Component({
         default:
           if (_valueString.length < valueLength) {
             _valueString.push(key)
+            if (/([港澳学警使领|(应急)])/.test(key)) {
+              this.setData({
+                isSpecial: false
+              })
+            }
             this.setData({
-              _valueString,
-              isSpecial: (key == '港' || key == '澳' || key == '学' || key == '警' || key == '应急') ? true : false
+              _valueString
             })
           }
           break;

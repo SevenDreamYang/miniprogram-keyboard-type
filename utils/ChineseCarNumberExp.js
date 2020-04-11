@@ -13,7 +13,7 @@ const CARNUMBER_REGEXP = {
     STRICT_NEWERGY_EIGHTH: /[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼]{1}[A-HJ-NP-Y]{1}[\d]{5}[DF]{1}$/,
     NOT_STRICT_NEWERGY: /^([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼]{1}[A-HJ-NP-Y]{1}[1-9DF]{1}[A-HJ-NP-Z1-9]{1}[\d]{3}[1-9DF]{1})$/,
     HK_MC: /^(粤Z)[A-HJ-NP-Y0-9]{4}[港澳]{1}$/, //港澳车牌
-    // PLA: /^([QVKHBSLJNGCEZ]{1}[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼]{1}[A-HJ-NP-Y0-9]{5})$/,
+    PLA: /^([QVKHBSLJNGCEZ]{1}[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼]{1}[A-HJ-NP-Y0-9]{5})$/,
     P_M: /^([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼]{1}[A-HJ-NP-Y]{1}[A-HJ-NP-Y0-9]{4}(警|应急))$/,
     WJ: /^(WJ)([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼]{1}[A-HJ-NP-Y]{1}[A-HJ-NP-Y0-9]{4}|[A-HJ-NP-Y0-9]{5})$/, //武警
     EC: /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼]{1}[A-HJ-NP-Y]{1}[A-HJ-NP-Y0-9]{4}[使领]{1}$/ //使领馆
@@ -23,6 +23,7 @@ export const JUDGE = {
     IS_HK_MC: /^(粤Z)/, //是不是港澳车牌 
     IS_WJ: /^(WJ)/, //是不是WJ车牌,
     IS_EC: /([使领]{1})$/,
+    IS_P_M: /(警|应急)$/,
     NEWERGY_THIRD: /^..([DF])/,
     NEWERGY_EIGHTH: /^.{7}([DF])$/
 }
@@ -33,10 +34,11 @@ export const JUDGE = {
  * @return {Object} status(匹配状态) msg(匹配信息)
  */
 export function ordinaryCarNum(CarNum) {
+    console.log(CarNum)
     const value = CARNUMBER_REGEXP.ORDINARY.test(CarNum)
     return {
         status: value,
-        msg: value ? '匹配成功' : '匹配失败',
+        msg: value ? '匹配成功' : `匹配失败${CarNum}`,
     }
 }
 /**
@@ -75,7 +77,7 @@ export function newEnergyCarNum(CarNum, strict) {
  *  @param {String} CarNum 
  *  @return {Object} status(匹配状态) msg(匹配信息)
  */
-export function YellowCarNum(params) {
+export function YellowCarNum(CarNum) {
     const value = CARNUMBER_REGEXP.Y_COMMON.test(CarNum)
     return {
         status: value,
@@ -91,10 +93,14 @@ export function WhitecCarNum(CarNum) {
         status: CARNUMBER_REGEXP.WJ.test(CarNum),
         msg: (CARNUMBER_REGEXP.WJ.test(CarNum)) ? '匹配成功' : '匹配失败',
         type: "WJ"
-    }: {
+    }: (JUDGE.IS_P_M.test(CarNum)) ?{
         status: CARNUMBER_REGEXP.P_M.test(CarNum),
         msg: (CARNUMBER_REGEXP.P_M.test(CarNum)) ? '匹配成功' : '匹配失败',
         type: "P_M"
+    }:{
+        status: CARNUMBER_REGEXP.PLA.test(CarNum),
+        msg: (CARNUMBER_REGEXP.PLA.test(CarNum)) ? '匹配成功' : '匹配失败',
+        type: "PLA"
     }
 }
 

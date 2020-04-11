@@ -14,7 +14,7 @@ module.exports = Behavior({
         initAnimation(dom) {
             console.log(dom)
             const query = wx.createSelectorQuery().in(this);
-            query.select('.SevenDreamY_Numberboard').boundingClientRect();
+            query.select(dom).boundingClientRect();
             query.exec((res) => {
                 this.setData({
                     keyHeight:res[0].height

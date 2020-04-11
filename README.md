@@ -1,4 +1,4 @@
-# 	键盘组件
+# 	键盘组件-Current
 
 ![GitHub](https://img.shields.io/github/license/SevenDreamYang/SDY_keyboard)
 ![GitHub top language](https://img.shields.io/github/languages/top/SevenDreamYang/SDY_keyboard)
@@ -74,8 +74,8 @@
 
   -  - [x] 样式
   -  - [x] 逻辑
-  -  - [ ] 车牌正则
-  -  - [ ] 键盘效果
+  -  - [x] 车牌正则（测试）
+  -  - [x] 键盘效果（完善）
 
 - 使用说明
 
@@ -119,9 +119,9 @@
 
   - `carKeyInput`
 
-  |     事件      |     说明     |          参数           |
-  | :-----------: | :----------: | :---------------------: |
-  | `ListenValue` | `监听值变化` | `’value‘:值 ‘sub‘:长度` |
+  |     事件      |     说明     |                 参数                 |
+  | :-----------: | :----------: | :----------------------------------: |
+  | `ListenValue` | `监听值变化` | `’value‘:值,‘sub‘:长度,exp:正则信息` |
 
 ## 乱序英文键盘（废弃）
 
@@ -135,9 +135,16 @@
 
 ![体验码](https://gitee.com/SevenDreamYang/miniprogram-keyboard-type/raw/master/asset/1.jpg)
 
-## git版本更新
+## 版本更新
 
-`v1.1.20200412`
+`v1.1.20200411`
+
+- `carKeyboard`
+  - 添加正则(实装)
+  - 键盘动画效果
+  - 车牌渲染效果
+
+`v1.1.20200410`
 
 - `Passwordkeyboard`
   - 1.修复密码键盘还能多输1位的问题
