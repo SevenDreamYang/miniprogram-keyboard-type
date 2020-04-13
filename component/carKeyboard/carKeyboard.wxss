@@ -2,11 +2,29 @@
     position: fixed;
     bottom: 0;
     width: 100%;
+    background: #cfd4db;
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-bottom: constant(safe-area-inset-bottom);
+}
+.ios-bottom {
+  padding-bottom: 10rpx;
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-bottom: constant(safe-area-inset-bottom);
 }
 .SevenDreamY_keyboard{
-  background: #eee;
   padding: 30rpx 2rpx;
   width: 100%;
+}
+.SevenDreamY-keyboard-head {
+  border-top: 1rpx solid #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 12rpx;
+  height: 70rpx;
+  background-color: #FFFFFF;
+  font-size: 32rpx;
+  color: #0099FF;
 }
 .key_row{
   display: flex;
@@ -57,24 +75,4 @@
   pointer-events: none;
   box-shadow: 0rpx 0rpx 0rpx;
   color: darkgray;
-}
-.inputing {
-  opacity: 1;
-  animation: opa .6s alternate linear infinite;
-  font-size: 50rpx;
-  position: absolute;
-  bottom: 8rpx;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #1E90FF;
-}
-
-@keyframes opa {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
 }

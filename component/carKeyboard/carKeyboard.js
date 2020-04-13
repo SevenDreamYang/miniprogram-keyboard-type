@@ -30,6 +30,10 @@ Component({
       type: Boolean,
       value: false
     },
+    safeAreaInsetBottom: {
+      type: Boolean,
+      value: false
+    }
   },
   observers: {
     '_valueString': function (_valueString) {
@@ -161,5 +165,8 @@ Component({
           break;
       }
     },
+    onConfirm(){
+       this.triggerEvent('onConfirm', {})
+    }
   }
 })

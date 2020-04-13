@@ -4,10 +4,11 @@
     bind:onChangeCard="onChangeCard"
     bind:onClickBox="onClickBox"
 />
-<view style="padding:20rpx;text-align:center;font-size:20rpx;color:#999">点击输入框弹起键盘,白色键盘暂不支持效果</view>
+<view style="padding:20rpx;text-align:center;font-size:20rpx;color:#999">暂不支持白牌军车验证</view>
 <view style="padding:20rpx;text-align:center;color:#ff5151">{{msg}}</view>
 <carKeyboard 
     bind:ListenValue="getValue"  
+    bind:onConfirm="onClickBox"
     CarNumid="{{CarNumid}}"
     isShow="{{show}}"
 />

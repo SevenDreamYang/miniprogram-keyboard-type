@@ -17,10 +17,13 @@ Component({
     'value': function (value) {
       // 在 numberA 或者 numberB 被设置时，执行这个函数
       const newValue = Array.from(value)
-      newValue.splice(2, 0, '·')
+      const {
+        CarNumid
+      } = this.data;
+      CarNumid == 3 ? newValue.splice(2, 0, ' '):newValue.splice(2, 0, '·')
       this.setData({
         focusIdex: value.length,
-        valueStr: value.length > 2 ? newValue.join('') : value.join('')
+        valueStr: value.length > 2 ?  newValue.join('') : value.join('')
       })
     },
     'CarNumid': function (CarNumid) {

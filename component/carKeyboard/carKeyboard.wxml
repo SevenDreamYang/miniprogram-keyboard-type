@@ -1,4 +1,7 @@
-<view class="showBox"  animation="{{animationDOM}}">
+<view class="showBox  {{safeAreaInsetBottom ? 'ios-bottom' : ''}}"  animation="{{animationDOM}}">
+  <view class="SevenDreamY-keyboard-head">
+			<text bindtap="onConfirm">完成</text>
+		</view>
   <view class="SevenDreamY_keyboard" hidden="{{isProvince}}">
     <view class="special_row" hidden="{{!isSpecial}}">
         <view class="special_item com_key {{H_Ckey ?'prohibit_key':''}}" bindtap="onKey" data-key="港">港</view>
