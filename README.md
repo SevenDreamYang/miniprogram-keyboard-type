@@ -1,10 +1,16 @@
-# 	键盘组件-Current
+# 	小程序键盘组件-Current
 
 ![GitHub](https://img.shields.io/github/license/SevenDreamYang/SDY_keyboard)
 ![GitHub top language](https://img.shields.io/github/languages/top/SevenDreamYang/SDY_keyboard)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/SevenDreamYang/SDY_keyboard)
 
 ## 说明
+
+- npm 下载
+
+  ```
+  npm i miniprogram-keyboard-type
+  ```
 
 ## 密码键盘
 
@@ -105,9 +111,10 @@
 
   - `carKeyboard`
 
-  |    参数    |      说明      |   类型   | 是否必传 | 备注 |
-  | :--------: | :------------: | :------: | :------: | :--: |
-  | `CarNumid` | `车牌类型下标` | `Number` |   `是`   |      |
+  |           参数           |      说明      |   类型    | 是否必传 | 备注 |
+  | :----------------------: | :------------: | :-------: | :------: | :--: |
+  |        `CarNumid`        | `车牌类型下标` | `Number`  |   `是`   |      |
+  | `safe-area-inset-bottom` | `ios安全底部`  | `Boolean` |   `否`   |      |
 
 - 事件
 
@@ -135,7 +142,7 @@
 
 ![体验码](https://gitee.com/SevenDreamYang/miniprogram-keyboard-type/raw/master/asset/1.jpg)
 
-## 版本更新
+## git版本更新
 
 `v1.1.20200411`
 
