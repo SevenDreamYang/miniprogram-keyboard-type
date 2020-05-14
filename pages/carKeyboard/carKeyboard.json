@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "carKeyboard": "/component/carKeyboard/carKeyboard",
-    "carKeyInput": "/component/carKeyInput/carKeyInput"
+    "CarCardboard": "/component/CarCardboard/CarCardboard",
+    "CarCardInput": "/component/CarCardInput/CarCardInput"
   }
 }

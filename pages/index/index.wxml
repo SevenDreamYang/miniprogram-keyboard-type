@@ -1,8 +1,6 @@
-<button class="btn" size="default" hover-class="element-hover" data-page="Passwordkeyboard" style="background: firebrick" bindtap="btnGo">Passwordkeyboard</button>
-<button class="btn" size="default" hover-class="element-hover" data-page="keyboard" style="background: darkcyan" bindtap="btnGo">keyboard(废弃)</button>
-<button class="btn" size="default" hover-class="element-hover" data-page="carKeyboard" style="background: forestgreen" bindtap="btnGo">carKeyboard</button>
-
-
+<button class="btn" size="default" hover-class="element-hover" data-page="Passwordkeyboard" style="background: firebrick" bindtap="btnGo">弹窗式密码键盘</button>
+<button class="btn" size="default" hover-class="element-hover" data-page="keyboard" style="background: darkcyan" bindtap="btnGo">input式车牌密码键盘&input输入框</button>
+<button class="btn" size="default" hover-class="element-hover" data-page="carKeyboard" style="background: forestgreen" bindtap="btnGo">卡牌式车牌键盘</button>
 
 <view class="info" hover-class="none" hover-stop-propagation="false">
     <image class="avatar" src="../../asset/SevenDreamYang.png"/>

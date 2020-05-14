@@ -8,7 +8,7 @@ Component({
    * 组件的属性列表
    */
   options: {
-    pureDataPattern: /^_/ // 指定所有 _ 开头的数据字段为纯数据字段
+    pureDataPattern: /^_/
   },
   externalClasses: ['right_key', 'btn-confirm'],
   behaviors: [AnimationFunction],
@@ -31,7 +31,7 @@ Component({
     },
     zIndex:{
       type: Number,
-      value: 50000 
+      value: 50 
     },
     safeAreaInsetBottom:{
       type: Boolean,

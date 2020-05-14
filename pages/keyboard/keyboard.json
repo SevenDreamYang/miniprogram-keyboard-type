@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "keyboard": "/component/keyboard/keyboard"
+    "TypeInput": "/component/TypeInput/TypeInput",
+    "CarInputboard":"/component/CarInputboard/CarInputboard"
   }
 }

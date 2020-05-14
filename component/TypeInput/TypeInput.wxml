@@ -1,0 +1,7 @@
+<view class="input-box" hover-stop-propagatiion="true">
+  <view class="typeinput input" style="height:{{height}}rpx;" catchtap="onfocus">
+    <view class="input-placeholder" wx:if="{{!value}}">{{placeholder}}</view>
+    <view class="input-value">{{value}}</view>
+    <text class="{{!isBlur ? 'input-line' : ''}}" style="height:{{height - 10}}rpx;background:{{lineColor}};"></text>
+  </view>
+</view>

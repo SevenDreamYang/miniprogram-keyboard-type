@@ -12,7 +12,6 @@ module.exports = Behavior({
     },
     methods: {
         initAnimation(dom) {
-            console.log(dom)
             const query = wx.createSelectorQuery().in(this);
             query.select(dom).boundingClientRect();
             query.exec((res) => {

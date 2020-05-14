@@ -1,34 +1,34 @@
 <view class="">
-  <swiper duration="{{500}}"  previous-margin="130rpx"  current="{{CarNumid}}"  next-margin="130rpx" class="carNumber_swiper"  bindchange="swiperChange">
+  <swiper wx:if="{{showCard}}" duration="{{500}}"  previous-margin="130rpx"  current="{{CarNumId}}"  next-margin="130rpx" class="carNumber_swiper"  bindchange="swiperChange">
     <swiper-item>
       <view class="comCarNumber YelloCarNuber">
-        <view class="box-border-balck  box-border-common"><text wx:if="{{CarNumid == 0}}">{{valueStr}}</text></view>
+        <view class="box-border-balck  box-border-common"><text wx:if="{{CarNumId == 0}}">{{valueStr}}</text></view>
       </view>
     </swiper-item>
     <swiper-item>
       <view class="comCarNumber BlueCarNuber">
-        <view class="box-border-White  box-border-common"><text  wx:if="{{CarNumid == 1}}">{{valueStr}}</text></view>
+        <view class="box-border-White  box-border-common"><text  wx:if="{{CarNumId == 1}}">{{valueStr}}</text></view>
       </view>
     </swiper-item>
     <swiper-item>
       <view class="comCarNumber newCarNuber">
-        <view class="box-border-balck  box-border-common"><text  wx:if="{{CarNumid == 2}}">{{valueStr}}</text></view>
+        <view class="box-border-balck  box-border-common"><text  wx:if="{{CarNumId == 2}}">{{valueStr}}</text></view>
       </view>
     </swiper-item>
     <swiper-item>
       <view class="comCarNumber WhiteCarNumber">
-        <view class="box-border-balck  box-border-common"><text  wx:if="{{CarNumid == 3}}">{{valueStr}}</text></view>
+        <view class="box-border-balck  box-border-common"><text  wx:if="{{CarNumId == 3}}">{{valueStr}}</text></view>
       </view>
     </swiper-item>
     <swiper-item>
       <view class="comCarNumber BlackCarNumber">
-        <view class="box-border-White  box-border-common"><text  wx:if="{{CarNumid == 4}}">{{valueStr}}</text></view>
+        <view class="box-border-White  box-border-common"><text  wx:if="{{CarNumId == 4}}">{{valueStr}}</text></view>
       </view>
     </swiper-item>
   </swiper>
   <view class="carNumber_box">
     <block wx:for="{{typeObj}}" wx:for-item="item" wx:for-index="idx" wx:key="idx">
-      <view class="carNumber_item {{CarNumid == idx?'SelectHover':''}}" data-idex="{{idx}}"  data-length="{{item.lengths}}" bindtap="onClickType">{{item.type}}</view>
+      <view class="carNumber_item {{CarNumId == idx?'SelectHover':''}}" data-idex="{{idx}}"  data-length="{{item.lengths}}" bindtap="onClickType">{{item.type}}</view>
     </block>
   </view>
 </view>

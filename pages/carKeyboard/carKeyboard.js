@@ -7,7 +7,7 @@ Page({
   data: {
     value:"",
     valueStr:'',
-    CarNumid: 0,
+    CarNumId: 0,
     show:false,
     msg:''
   },
@@ -21,7 +21,7 @@ Page({
   },
   onChangeCard(e) {
     this.setData({
-      CarNumid: e.detail.CarNumid
+      CarNumId: e.detail.CarNumId
     })
   },
   onClickBox(e){

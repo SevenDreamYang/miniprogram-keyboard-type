@@ -1,0 +1,71 @@
+<view  class="showBox  {{safeAreaInsetBottom ? 'ios-bottom' : ''}}" style="transform: translateY({{keyHeight}}px);" animation="{{animationDOM}}">
+  <view class="SevenDreamY-keyboard-head" >
+			<text catchtap="onConfirm">完成</text>
+		</view>
+  <view class="SevenDreamY_keyboard" hidden="{{isProvince}}">
+    <view class="key_row">
+      <block wx:for="{{firstRow}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2">
+        <view class="key_item com_key  {{SecondNotKeyValue?'prohibit_key':''}}" catchtap="onKey" data-key="{{key_item}}">
+          {{key_item}}
+        </view>
+      </block>
+    </view>
+    <view class="key_row">
+      <block wx:for="{{SecondRow}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2">
+        <view class="key_item com_key  {{key_item == 'I'?'prohibit_key':''}}" catchtap="onKey" data-key="{{key_item}}">
+          {{key_item}}
+        </view>
+      </block>
+    </view>
+    <view class="key_row">
+      <block wx:for="{{ThirdRow}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2">
+        <view class="key_item com_key" catchtap="onKey" data-key="{{key_item}}">
+          {{key_item}}
+        </view>
+      </block>
+    </view>
+    <view class="key_row">
+      <block wx:for="{{FourthRow}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2">
+        <view class="key_item com_key" catchtap="onKey" data-key="{{key_item}}">
+          {{key_item}}
+        </view>
+      </block>
+      <view class="key_item com_key  {{specialKey ?'prohibit_key':''}}" catchtap="onKey" data-key="港">
+        港
+      </view>
+      <view class="key_item com_key {{specialKey ?'prohibit_key':''}}" data-key="澳">
+        澳
+      </view>
+      <view class="Del com_key" data-key="Del" catchtap="onKey">
+        删除
+      </view>
+    </view>
+  </view>
+  <view class="SevenDreamY_keyboard" hidden="{{!isProvince}}">
+    <view class="key_row">
+      <block wx:for="{{provinceFirstRow}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2">
+        <view class="key_item com_key" catchtap="onKey" data-key="{{key_item}}">{{key_item}}</view>
+      </block>
+    </view>
+    <view class="key_row">
+      <block wx:for="{{provinceSecondRow}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2">
+        <view class="key_item com_key" catchtap="onKey" data-key="{{key_item}}">{{key_item}}</view>
+      </block>
+    </view>
+    <view class="key_row">
+      <block wx:for="{{provinceThirdRow}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2">
+        <view class="key_item com_key" catchtap="onKey" data-key="{{key_item}}">{{key_item}}</view>
+      </block>
+    </view>
+    <view class="key_row" style="justify-content:space-between">
+      <view style="display:flex">
+        <block wx:for="{{provinceFourthRow}}" wx:for-index="idx2" wx:for-item="key_item" wx:key="idx2">
+          <view class="key_item com_key" catchtap="onKey" data-key="{{key_item}}">{{key_item}}</view>
+        </block>
+      </view>
+      <view style="display:flex">
+        <view class="Del com_key" data-key="Del" catchtap="onKey">删除</view>
+      </view>
+    </view>
+  </view>
+</view>

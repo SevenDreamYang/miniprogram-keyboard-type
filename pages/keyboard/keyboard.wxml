@@ -1,13 +1,15 @@
-<!--pages/keyboard/keyboard.wxml-->
-<view class="" hover-class="none" hover-stop-propagation="false">
-     <view class="" style="text-align:center;background:#ff5151;color:#fff">
-         有序键盘
-     </view>
-     <keyboard  isDisorder="{{false}}" />
+<view class="" bindtap="blur">
+    <view class="h1">表单演示</view>
+    <form class=""  bindsubmit="onbutton">
+        <view class="from-ipuntBox"><view style="margin:0 6rpx;">姓名:</view><input type="text" name="name" value="SevenDream"/></view>
+        <view class="from-ipuntBox"><view style="margin:0 6rpx;">车牌号:</view><TypeInput bind:onfocus="onfocus" placeholder="测试" name="carNum" value="{{value}}" isBlur="{{isblur}}"/></view>
+        <view class="from-ipuntBox"><view style="margin:0 6rpx;">演示:</view><input type="text" name="infrom" value="小程序为from内演示"/></view>
+        <button formType="submit" class="submitbtn">表单提交</button>
+    </form>
 </view>
-<view class="" hover-class="none" hover-stop-propagation="false">
-    <view class="" style="text-align:center;background:#ff5151;color:#fff">
-        无序键盘
-     </view>
-    <keyboard  isDisorder="{{true}}" />
-</view>
+<CarInputboard
+    isBlur="{{isblur}}"
+    bind:ListenValue="getValue"  
+    bind:onConfirm="onClickBox"
+    isShow="{{show}}"
+/>

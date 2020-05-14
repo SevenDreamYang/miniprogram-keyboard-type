@@ -1,0 +1,38 @@
+.input-box {
+  padding: 2rpx 12rpx;
+  width: 100%;
+  flex-shrink: 1;
+  width: 500rpx;
+}
+.input{
+  width: 100%;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.input-placeholder{
+  color: #999999;
+  position: absolute;
+  font-size: 26rpx;
+}
+.input-value {
+  text-align: center;
+}
+.input-line {
+  margin: 0 6rpx;
+  width: 2rpx;
+  animation: inputline 1.2s infinite;
+}
+
+
+
+@keyframes inputline {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

@@ -12,29 +12,33 @@ Component({
       type: Array,
       value: 6
     },
+    showCard:{
+      type:Boolean,
+      value:true
+    }
   },
   observers: {
     'value': function (value) {
       // 在 numberA 或者 numberB 被设置时，执行这个函数
       const newValue = Array.from(value)
       const {
-        CarNumid
+        CarNumId
       } = this.data;
-      CarNumid == 3 ? newValue.splice(2, 0, ' '):newValue.splice(2, 0, '·')
+      CarNumId == 3 ? newValue.splice(2, 0, ' '):newValue.splice(2, 0, '·')
       this.setData({
         focusIdex: value.length,
         valueStr: value.length > 2 ?  newValue.join('') : value.join('')
       })
     },
-    'CarNumid': function (CarNumid) {
+    'CarNumId': function (CarNumId) {
       const {
         typeObj
       } = this.data;
-      this.setData({
-        valueLength: typeObj[CarNumid].lengths
-      })
       this.triggerEvent('onChangeCard', {
-        CarNumid: CarNumid
+        CarNumId: CarNumId
+      })
+      this.setData({
+        valueLength: typeObj[CarNumId].lengths
       })
     }
   },
@@ -42,7 +46,7 @@ Component({
     value: [],
     error: '',
     focusIdex: 0,
-    CarNumid: 0,
+    CarNumId: 0,
     valueLength: 7,
     valueStr: ''
   },
@@ -50,13 +54,13 @@ Component({
     swiperChange(e) {
       const current = e.detail.current;
       this.setData({
-        CarNumid: current,
+        CarNumId: current,
       })
     },
     onClickType(e) {
       const current = e.currentTarget.dataset.idex
       this.setData({
-        CarNumid: current,
+        CarNumId: current,
       })
     },
     onClickBox(e) {

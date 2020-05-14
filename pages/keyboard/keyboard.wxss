@@ -1,4 +1,22 @@
+.h1{
+    text-align: center;
+    font-size: 36rpx;
+    font-weight: 600;
+}
 .btn-box{
     display: flex;
     margin: 60rpx 0;
+    
+}
+.submitbtn{
+    width: 80% !important;
+    margin-top:80rpx;
+    
+}
+.from-ipuntBox{
+    display: flex;
+    margin: 10rpx;
+    padding: 10rpx;
+    border-top:1rpx solid #ccc;
+    border-bottom:1rpx solid #ccc ;
 }
