@@ -311,7 +311,7 @@
 
 ## 体验&微信
 
-![体验码](https://gitee.com/SevenDreamYang/miniprogram-keyboard-type/raw/master/asset/1.jpg) ![微信](https://gitee.com/SevenDreamYang/miniprogram-keyboard-type/raw/master/asset/2.jpg)
+![体验码](https://gitee.com/SevenDreamYang/miniprogram-keyboard-type/raw/master/asset/1.jpg) ![微信](https://gitee.com/SevenDreamYang/miniprogram-keyboard-type/raw/master/asset/2.png)
 
 ## git版本更新
 
