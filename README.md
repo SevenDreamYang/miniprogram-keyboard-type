@@ -323,7 +323,7 @@
   - `CarCardInput` 新增是否显示切换卡 
   - 适配 DarkMode
 - 更新名称
-  - `TypeInput` ->CarTypeInput`
+  - `TypeInput(叫TypeInput可能打包不进去？)` ->`CarTypeInput`
 
 `v1.1.20200515`
 

@@ -11,6 +11,24 @@ Page({
     show:false,
     msg:''
   },
+  onload(){
+    wx.showShareMenu({
+      withShareTicket: true,
+      menus: ['shareAppMessage', 'shareTimeline'],
+      success(res) {
+        console.log(res)
+      },
+      fail(e) {
+        console.log(e)
+      }
+    })
+  },
+  onShareAppMessage(){
+    
+  },
+  onShareTimeline(){
+    
+  },
   getValue(e){
     const value = e.detail.value;
     this.setData({
