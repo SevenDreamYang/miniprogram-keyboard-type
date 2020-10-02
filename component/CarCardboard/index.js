@@ -34,26 +34,27 @@ Component({
   observers: {
     _valueString: function (_valueString) {
       const length = _valueString.length;
+      const valueStr = _valueString.join("")
       wx.nextTick(() => {
         const { CarNumId, valueLength, _FNARRAY } = this.data;
         const IS_YWB = /^[034]{1}$/;
         this.setData({
-          isProvince: length == 0 || (_valueString[0] == "WJ" && length == 1),
+          isProvince: length === 0 || (_valueString[0] === "WJ" && length === 1),
           SecondNotKeyValue: !(length >= 2),
-          specialKey: !(IS_YWB.test(CarNumId) && length == valueLength - 1),
-          provinceKey: !(length == 0),
+          specialKey: !(IS_YWB.test(CarNumId) && length === valueLength - 1),
+          provinceKey: !(length === 0),
           WJkey: !(CarNumId === 3 && length === 0),
-          H_Ckey: !JUDGE.IS_HK_MC.test(_valueString.join("")),
+          H_Ckey: !JUDGE.IS_HK_MC.test(valueStr),
           firstKeyValue: !(
-            CarNumId === 3 && !JUDGE.IS_WJ.test(_valueString.join(""))
+            CarNumId === 3 && !JUDGE.IS_WJ.test(valueStr)
           ),
         });
         this.triggerEvent("ListenValue", {
           value: _valueString || [],
-          sub: _valueString.length,
+          sub: length,
           exp: !(length == valueLength)
             ? {}
-            : _FNARRAY[CarNumId](_valueString.join("")),
+            : _FNARRAY[CarNumId](valueStr),
         });
       });
     },
@@ -65,7 +66,6 @@ Component({
       });
     },
     isShow: function (Show) {
-      console.log(Show);
       const { _domInit } = this.data;
       if (_domInit) {
         wx.nextTick(() => {
@@ -156,7 +156,6 @@ Component({
   methods: {
     onKey(e) {
       const key = e.currentTarget.dataset.key;
-      // console.log(key)
       const { isProvince, isSpecial, _valueString, valueLength } = this.data;
       switch (key) {
         case "省":

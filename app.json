@@ -5,11 +5,16 @@
     "pages/keyboard/keyboard",
     "pages/Passwordkeyboard/Passwordkeyboard"
   ],
+  "darkmode":true,
+  "themeLocation":"theme.json",
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "miniprogram-keyboard-type",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "@navBgColor",
+    "navigationBarTextStyle": "@navTxtStyle",
+    "backgroundColor": "@bgColor",
+    "backgroundTextStyle": "@bgTxtStyle",
+    "backgroundColorTop": "@bgColorTop",
+    "backgroundColorBottom": "@bgColorBottom"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

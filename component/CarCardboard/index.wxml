@@ -75,7 +75,6 @@
           WJ
         </view>
       </view>
-      <!-- <view class="key_item com_key" bindtap="onKey" data-key="台">台</view> -->
       <view style="display:flex">
         <view class="ABC_key com_key  {{firstKeyValue ?'prohibit_key':''}}" bindtap="onKey" data-key="ABC">
           ABC

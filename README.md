@@ -6,7 +6,7 @@
 
 - 当前版本
 
-  **v1.1.0**
+  **v1.2.0**
 
 - npm 下载
 
@@ -18,14 +18,13 @@
 
 - 组件分别为 `弹窗式密码键盘` `车牌式车牌键盘`  `* 输入框车牌键盘`
 
-
-## 弹窗式密码键盘
+- * 适配 `DarkMode`   [相关链接](https://developers.weixin.qq.com/miniprogram/dev/framework/ability/darkmode.html)
 
 - 使用说明
 
   ```JSON
   "usingComponents": {
-     "Passwordkeyboard": "/您的路径/Passwordkeyboard/Passwordkeyboard"
+     "Passwordkeyboard": "/您的路径/Passwordkeyboard/index"
   }	
   ```
 
@@ -58,6 +57,8 @@
   | `zIndex`                 | `z-index 层级` | `Number`  | `否`     | `默认为50`   |
   | `safe-area-inset-bottom` | `ios安全底部`  | `Boolean` | `否`     |              |
 
+  
+
 - 事件
 
   |    事件     |     说明     |         参数         |
@@ -65,12 +66,12 @@
   | `onCancel`  | `取消时触发` |          -           |
   | `onConfirm` | `确认时触发` | `{'value':'123456'}` |
 
-## * 输入框车牌键盘
+##  输入框车牌键盘
 
 - 说明
 
-  - 请`TypeInput` 与 `CarInputboard` 配合使用。
-  - `TypeInput`  可以在 `from` 中使用 
+  - 请`CarTypeInput` 与 `CarInputboard` 配合使用。
+  - `CarTypeInput`  可以在 `from` 中使用 
   - 与 `carKeyboard`与 `CarInputboard` 的不同
     - 除样式相同外,删除了一些在使用`TypeInput`  不必要的参数和方法
     - `CarInputboard`  不包含正则
@@ -81,12 +82,12 @@
 - 使用说明
 
   ```JSON
-  "TypeInput": "/component/TypeInput/TypeInput",
-  "CarInputboard":"/component/CarInputboard/CarInputboard"
+  "CarTypeInput": "/component/CarTypeInput/index",
+  "CarInputboard":"/component/CarInputboard/index"
   ```
 
   ```html
-  <TypeInput 
+  <CarTypeInput 
       bind:onfocus="onfocus"
       placeholder=""
       name="carNum" 
@@ -224,8 +225,8 @@
 - 使用说明
 
   ```JSON
-  "CarCardInput": "/您的路径/CarCardInput/CarCardInput"
-  "CarCardboard": "/您的路径/carKeyInput/CarCardboard"
+  "CarCardInput": "/您的路径/CarCardInput/index"
+  "CarCardboard": "/您的路径/carKeyInput/index"
   ```
 
   ```HTML
@@ -278,9 +279,10 @@
 
   - `CarCardInput`
 
-    |  参数   |   说明   |  类型   | 是否必传 | 备注 |
-    | :-----: | :------: | :-----: | :------: | :--: |
-    | `value` | `渲染值` | `Array` |   `是`   |      |
+    |    参数    |       说明       |   类型    | 是否必传 | 备注 |
+    | :--------: | :--------------: | :-------: | :------: | :--: |
+    |  `value`   |     `渲染值`     |  `Array`  |   `是`   |      |
+    | `showCard` | `是否显示切换卡` | `Boolean` |   `否`   |      |
 
   - `CarCardboard`
 
@@ -288,7 +290,7 @@
     | :----------------------: | :------------: | :-------: | :------: | :--: |
     |        `CarNumid`        | `车牌类型下标` | `Number`  |   `是`   |      |
     | `safe-area-inset-bottom` | `ios安全底部`  | `Boolean` |   `否`   |      |
-
+  
 - 事件
 
   - `carKeyInput`
@@ -309,11 +311,19 @@
 
 > 项目中留存，npm包中不包含英文乱序键盘
 
-## 体验&微信
+## 体验&作者微信
 
 ![体验码](https://gitee.com/SevenDreamYang/miniprogram-keyboard-type/raw/master/asset/1.jpg) ![微信](https://gitee.com/SevenDreamYang/miniprogram-keyboard-type/raw/master/asset/2.png)
 
 ## git版本更新
+
+`v1.2.202001002`
+
+- 新增功能
+  - `CarCardInput` 新增是否显示切换卡 
+  - 适配 DarkMode
+- 更新名称
+  - `TypeInput` ->CarTypeInput`
 
 `v1.1.20200515`
 

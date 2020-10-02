@@ -6,10 +6,10 @@
 
 //车牌正则
 const CARNUMBER_REGEXP = {
-    COMMON: /^(?:[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领台A-Z]{1}[A-HJ-NP-Z]{1}(?:(?:[0-9]{5}[DF])|(?:[DF](?:[A-HJ-NP-Z0-9])[0-9]{4})))|(?:[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领 A-Z]{1}[A-Z]{1}[A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9 挂学警港澳]{1})$/,
+    COMMON: /^(?:[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼台使领A-Z]{1}[A-HJ-NP-Z]{1}(?:(?:[0-9]{5}[DF])|(?:[DF](?:[A-HJ-NP-Z0-9])[0-9]{4})))|(?:[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领 A-Z]{1}[A-Z]{1}[A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9 挂学警港澳]{1})$/,
     ORDINARY: /^([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼台]{1}[A-HJ-NP-Y]{1}[A-HJ-NP-Y0-9]{5})$/,
-    Y_COMMON: /^([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼台]{1}[A-Z]{1}[A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9 挂学]{1})/,
-    STRICT_NEWERGY_THIRD: /^([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼台]{1}[A-HJ-NP-Y]{1}[DF]{1}[A-HJ-NP-Z1-9]{1}[\d]{4})$/,
+    Y_COMMON: /^([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼台]{1}[A-Z]{1}[A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学]{1})/,
+    STRICT_NEWERGY_THIRD: /^([1]{1}[A-HJ-NP-Y]{1}[DF]{1}[A-HJ-NP-Z1-9]{1}[\d]{4})$/,
     STRICT_NEWERGY_EIGHTH: /[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼台]{1}[A-HJ-NP-Y]{1}[\d]{5}[DF]{1}$/,
     NOT_STRICT_NEWERGY: /^([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼台]{1}[A-HJ-NP-Y]{1}[1-9DF]{1}[A-HJ-NP-Z1-9]{1}[\d]{3}[1-9DF]{1})$/,
     HK_MC: /^(粤Z)[A-HJ-NP-Y0-9]{4}[港澳]{1}$/, //港澳车牌
@@ -18,6 +18,7 @@ const CARNUMBER_REGEXP = {
     WJ: /^(WJ)([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼台]{1}[A-HJ-NP-Y]{1}[A-HJ-NP-Y0-9]{4}|[A-HJ-NP-Y0-9]{5})$/, //武警
     EC: /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼台]{1}[A-HJ-NP-Y]{1}[A-HJ-NP-Y0-9]{4}[使领]{1}$/ //使领馆
 }
+
 //判断车牌
 export const JUDGE = {
     IS_HK_MC: /^(粤Z)/, //是不是港澳车牌 
@@ -49,7 +50,6 @@ export function ordinaryCarNum(CarNum) {
  */
 export function newEnergyCarNum(CarNum, strict) {
     if (!strict) {
-        console.log(CarNum)
         let value = CARNUMBER_REGEXP.NOT_STRICT_NEWERGY.test(CarNum);
         console.log(value, CarNum.length)
         return {

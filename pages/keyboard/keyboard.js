@@ -16,7 +16,7 @@ Page({
   onLoad: function (options) {
 
   },
-  blur(e){
+  onblur(e){
     this.setData({
       show:false,
       isblur:true,

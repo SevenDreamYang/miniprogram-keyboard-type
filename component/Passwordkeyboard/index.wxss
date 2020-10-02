@@ -41,7 +41,7 @@
 }
 .Dialog_btnCom{
   width:calc(100%/2); 
-  height:120rpx;
+  height:100rpx;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -142,5 +142,34 @@
 
   to {
     opacity: 1;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .Dialog{
+    background: #232323;
+  }
+  .Dialog_input{
+    border: 1rpx solid #2b2b2b;
+  }
+  .Dialog_btnBox{
+    border-top: 2rpx solid #2b2b2b; 
+  }
+  .btn-cancel{
+    border-right: .1rpx solid #2b2b2b; 
+  }
+  .btn-confirm{
+    border-left: .1rpx solid #2b2b2b; 
+  }
+  .SevenDreamY_Numberboard {
+    background: #151515;
+  }
+  .com_key{
+    background: #222126;
+    border: 1rpx solid #2b2b2b;
+    color:#fff;
+  }
+  .left_key {
+    background: #4a494e;
+    color: #fff
   }
 }

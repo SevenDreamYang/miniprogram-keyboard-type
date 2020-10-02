@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "CarCardboard": "/component/CarCardboard/CarCardboard",
-    "CarCardInput": "/component/CarCardInput/CarCardInput"
+    "CarCardboard": "/component/CarCardboard/index",
+    "CarCardInput": "/component/CarCardInput/index"
   }
 }

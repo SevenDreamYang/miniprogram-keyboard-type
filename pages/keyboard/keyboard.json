@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "TypeInput": "/component/TypeInput/TypeInput",
-    "CarInputboard":"/component/CarInputboard/CarInputboard"
+    "CarTypeInput": "/component/CarTypeInput/index",
+    "CarInputboard":"/component/CarInputboard/index"
   }
 }

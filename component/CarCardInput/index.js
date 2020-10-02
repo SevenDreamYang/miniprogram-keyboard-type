@@ -19,7 +19,6 @@ Component({
   },
   observers: {
     'value': function (value) {
-      // 在 numberA 或者 numberB 被设置时，执行这个函数
       const newValue = Array.from(value)
       const {
         CarNumId
@@ -30,17 +29,6 @@ Component({
         valueStr: value.length > 2 ?  newValue.join('') : value.join('')
       })
     },
-    'CarNumId': function (CarNumId) {
-      const {
-        typeObj
-      } = this.data;
-      this.triggerEvent('onChangeCard', {
-        CarNumId: CarNumId
-      })
-      this.setData({
-        valueLength: typeObj[CarNumId].lengths
-      })
-    }
   },
   data: {
     value: [],
@@ -52,9 +40,16 @@ Component({
   },
   methods: {
     swiperChange(e) {
+      const {
+        typeObj
+      } = this.data;
       const current = e.detail.current;
       this.setData({
         CarNumId: current,
+        valueLength: typeObj[current].lengths
+      })
+      this.triggerEvent('onChangeCard', {
+        CarNumId: current
       })
     },
     onClickType(e) {
@@ -62,9 +57,12 @@ Component({
       this.setData({
         CarNumId: current,
       })
+      this.triggerEvent('onChangeCard', {
+        CarNumId: current
+      })
     },
     onClickBox(e) {
-      this.triggerEvent('onClickBox', {})
+      this.triggerEvent('onClickBox')
     }
   }
 })

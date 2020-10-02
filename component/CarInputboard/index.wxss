@@ -82,3 +82,5 @@
   box-shadow: 0rpx 0rpx 0rpx;
   color: darkgray;
 }
+
+@import '../darktheme/CarCardDarkTheme.wxss'

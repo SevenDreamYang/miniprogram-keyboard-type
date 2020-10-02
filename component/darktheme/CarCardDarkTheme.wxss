@@ -1,0 +1,23 @@
+@media (prefers-color-scheme: dark) {
+    .showBox {
+        background: #1b1b1b;
+    }
+
+    .SevenDreamY-keyboard-head {
+        border-top: 1rpx solid #151515;
+        background-color: #151515;
+        color: #FFFFFF;
+    }
+
+    .com_key {
+        background: #4a494e;
+        box-shadow: 0rpx 2rpx 3rpx #333;
+    }
+
+    .prohibit_key {
+        pointer-events: none;
+        box-shadow: 0rpx 0rpx 0rpx;
+        color: #222126;
+    }
+
+}
